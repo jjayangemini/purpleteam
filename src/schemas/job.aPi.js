@@ -77,8 +77,11 @@ const schema = {
       type: 'object',
       additionalProperties: false,
       properties: {
-        emissaryAuthenticationStrategy: { type: 'string', enum: ['MaintainJwt'], default: 'MaintainJwt' },
-        route: { type: 'string', pattern: '^/[-?&=\\w/]{1,1000}$' }
+        emissaryAuthenticationStrategy: { type: 'string', enum: ['MaintainJwt', 'RestApi'], default: 'MaintainJwt' },
+        route: { type: 'string', pattern: '^/[-?&=\\w/]{1,1000}$' },
+        tokenUrl: { type: 'string', minLength: 1 },
+        clientId: { type: 'string', minLength: 1 },
+        clientSecret: { type: 'string', minLength: 1 }
       },
       required: [
         'route'
